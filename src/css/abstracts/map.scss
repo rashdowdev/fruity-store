@@ -1,0 +1,14 @@
+
+@import  "~bootstrap/scss/_functions";
+@import  "~bootstrap/scss/_variables";
+
+
+$custom-theme-colors: (
+"third-color": #a4aec6,
+"fourth-color": #444c64,
+"fifth-color": #a49c9f,
+"white": #f3f3f3,
+"sixth-color": #ced78e
+);
+
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);

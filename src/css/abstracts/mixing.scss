@@ -1,0 +1,50 @@
+@mixin offcanvas{
+    top: 70px !important;
+    
+}
+
+@mixin input{
+    input{
+        height: 35px !important;
+      }
+    input:focus{
+        box-shadow: none !important;
+        border: 1px solid $third-color !important;
+     }
+}
+
+@mixin carousel{
+    width: 100% !important;
+    height: 350px !important;
+    overflow: hidden;
+       
+}
+
+@mixin i{
+    text-decoration: none;
+    font-size: 20;
+    color: $third-color;
+    margin-right: 15px;
+}
+
+@mixin h1{
+    font-size: 35px;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: $primary;
+    margin-bottom: 20px !important;
+}
+
+@mixin btn{
+    width:fit-content;
+    height: 30px;
+    color: $white;
+    display: flex;
+    background: $primary;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto !important;
+    text-transform: capitalize;
+    border: 2px solid $primary;
+    border-radius: 5px;
+}
