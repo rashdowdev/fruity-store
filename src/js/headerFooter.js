@@ -1,39 +1,10 @@
-/*
-let imageData = [
-{
-    id: "ft-1",
-    name: "apples",
-    img: ("../images/apples.jpeg"),
-    alt:"apple"
-},
-{
-    id: "ft-2",
-    name: "grover",
-    price: "30.99",
-    img: ("../images/grover.jpg"),
-    alt:"grover",
-},
-{
-    id: "ft-3",
-    name: "cherry",
-    price: "35.99",
-    img: ("../images/cherry.jpg"),
-    alt: "cherry",
-},
-{
-    id: "ft-4", 
-    name: "pawpaw",
-    price: "40.99",
-    img: ("../images/pawpaw.jpg"),
-    alt:"pawpaw",
-}
-];
+
 class theHeader extends HTMLElement{
     connectedCallback(){
         this.innerHTML = 
         `
-        <nav class="navbar navbar-expand-md navbar-light fixed-top">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top">
+        <div class="container-xxl">
           <!--TOGGLE-BAR-->
           <div class="top d-flex">
           <button class="navbar-toggler toggle-bar collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#toggle-bar"aria-controls="toggle-bar">
@@ -114,7 +85,7 @@ class theHeader extends HTMLElement{
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                 </svg></span>
               </button>
-              <span id="quantity"></span>
+              <span id="quantity">0</span>
             </div>
             <!--CART-->
     
@@ -134,28 +105,19 @@ class theHeader extends HTMLElement{
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body" id="prod">
-      <div class="cart-content">
-      <div class="cart-content">
-      <img src="" alt="" class="img-fluid">
-      <div class="cart-des">
-          <div class="prd-title"></div>
-          <div class="prd-price"></div>
-          <div class="prod-btn">
-            <i class="bi bi-dash" ></i>
-            <div  class="prod-quantity">0</div>
-            <i  class="bi bi-plus" ></i>
-          </div>
+      <div class="offcanvas-body">
+      <div class="cart-content" id="prod">
+      <div id="label" class="text-center"></div>
+      <div class="shop" id="shop"></div>
+      
       </div>
-      <i class="bi bi-trash3-fill remove-item"></i>
+      <div class="total">
+        <div class="total-title">total</div>
+        <div class="total-price">N0</div>
+      </div>
+      <button type="submit" class="check-out">check out</button>
+      </div>
     </div>
-        </div>
-        <div class="total">
-          <div class="total-title">total</div>
-          <div class="total-price">N0</div>
-        </div>
-        <button type="submit" class="check-out">check out</button>
-      </div>
     </div>
     <div class="offcanvas offcanvas-end bg-primary" tabindex="-1" id="login-box" aria-labelledby="login-boxLabel">
       <div class="offcanvas-body">
@@ -200,27 +162,115 @@ class theHeader extends HTMLElement{
     
         </form>
       </div>
-      </div>
+    </div>
         `
     }
 };
 
 customElements.define("the-header", theHeader);
 
-// let customHead = document.getElementsByName(the-header);
-*/
+class theFooter extends HTMLElement{
+  connectedCallback(){
+      this.innerHTML = 
+     `<div class="container-xxl">
+     <div class="row justify-content-center">
+     <div class="col-md-3 col-lg-2">
+         <h1 class="text-center">fruits haven</h1>
+         <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, repellendus.</p>
+         <div class="stars text-center">
+         <i class="bi bi-facebook"></i>
+         <i class="bi bi-instagram"></i>
+         <i class="bi bi-twitter"></i>
+         <i class="bi bi-whatsapp"></i>
+         </div>
+     </div>
+     <div class="col-md-2 col-lg-2">
+         <h1 class="text-center">quick links</h1>
+         <div class="links text-center">
+         <a href="#" class="q-link">
+             <i class="bi bi-arrow-right"></i>home
+         </a>
+         <a href="products.html" class="q-link">
+             <i class="bi bi-arrow-right"></i>Products
+         </a>
+         <a href="#" class="q-link">
+             <i class="bi bi-arrow-right"></i>Contact Us
+         </a>
+         <a href="#" class="q-link">
+             <i class="bi bi-arrow-right"></i>about us
+         </a>
+         <a href="#" class="q-link">
+             <i class="bi bi-arrow-right"></i>login
+         </a>
+         </div>
+     </div>
+     <div class="col-md-3 col-lg-2">
+         <h1 class="text-center">contact info</h1>
+         <div class="links">
+         <div class="link">
+             <i class="bi bi-phone"></i>
+             <p>25588899966</p>
+         </div>
+         <div class="link">
+             <i class="bi bi-phone"></i>
+             <p>25588899966</p>
+         </div>
+         <div class="link">
+             <i class="bi bi-envelope"></i>
+             <p>dsdjsdhjoj@kssksjkdsd</p>
+         </div>
+         <div class="link">
+             <i class="bi bi-geo-alt-fill"></i>
+             <p>dksdsjdsldjs</p>
+         </div>
+         </div>
+     </div>
+     <div class="col-md-4 col-lg-3 btt text-center">
+       <h1 class="text-center">newsletter</h1>
+       <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+       <form action="#" class="">
+           <div class="mb-3 input-group">
+           <span class="input-group-text">
+           <i class="bi bi-envelope-fill"></i>
+           </span>
+           <input type="email
+           " class="form-control" id="emaill" placeholder="e.g. myemail@email.com">
+           <span class="input-group-text">
+               <span class="info" data-bs-toggle="tooltip" data-bs-placement="top" title="Enter an email address to get latest news">
+               <i class="bi bi-question-circle text-muted"></i>
+               </span>
+           </span>
+           </div>
+           <button class="btn mb-2">subscribe</button>
+       </form>
+       <div class="cards">
+           <img class="img-fluid" src="src/images/express.webp" alt="american express">
+           <img class="img-fluid" src="src/images/master.png" alt="master card">
+           <img class="img-fluid" src="src/images/visa.png" alt="visa card">
+           <img class="img-fluid" src="src/images/pay.png" alt="paypal">
+       </div>
+     </div>
+     </div>
+  </div>
+  <div class="foot">
+   <h6 class="text-center">created by rashdowdev | all rights reserved</h6>
+  </div>
+     `
+  }
+};
+
+customElements.define("the-footer", theFooter);
 
 
-
-const navHead =
-document.querySelector(".nav-bar");
-fetch("../navbar.html")
-.then(res=>res.text())
-.then(data=>{
-  navHead.innerHTML=data
-  const parser = new DOMParser();
+// const navHead =
+// document.querySelector(".nav-bar");
+// fetch("../navbar.html")
+// .then(res=>res.text())
+// .then(data=>{
+//   navHead.innerHTML=data
+//   const parser = new DOMParser();
   
-});
+// });
 
 
 

@@ -2,6 +2,7 @@
 /* FRUITS */
 
 let fruitItems = document.getElementById("fruit-slide1");
+
 let fruitItemsData = [{
     id: "ft-1",
     name: "apples",
@@ -401,7 +402,7 @@ let vegItemsData = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "25.99",
-    img: require("../images/bam.jpeg"),
+    img: ("./src/images/bam.jpeg"),
     alt:"cucumber"
 },
 {
@@ -413,7 +414,7 @@ let vegItemsData = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "30.99",
-    img: require("../images/ginger.jpeg"),
+    img: ("./src/images/ginger.jpeg"),
     alt:"ginger",
 },
 {
@@ -425,7 +426,7 @@ let vegItemsData = [{
     star4: "bi bi-star-fill",
     star5: "bi bi-star",
     price: "35.99",
-    img: require("../images/illy.jpeg"),
+    img: ("./src/images/illy.jpeg"),
     alt: "chilly",
 },
 {
@@ -437,7 +438,7 @@ let vegItemsData = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "40.99",
-    img: require("../images/onion.webp"),
+    img: ("./src/images/onion.webp"),
     alt:"onions",
 }];
 
@@ -482,7 +483,7 @@ let vegItemsData2 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "25.99",
-    img: require("../images/room.jpeg"),
+    img: ("./src/images/room.jpeg"),
     alt:"mushroom",
 },
 {
@@ -494,7 +495,7 @@ let vegItemsData2 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "30.99",
-    img: require("../images/rot.jpeg"),
+    img: ("./src/images/rot.jpeg"),
     alt:"carrot",
 },
 {
@@ -506,7 +507,7 @@ let vegItemsData2 = [{
     star4: "bi bi-star-fill",
     star5: "bi bi-star",
     price: "35.99",
-    img: require("../images/ily.jpg"),
+    img: ("./src/images/ily.jpg"),
     alt: "chilly",
 },
 {
@@ -518,7 +519,7 @@ let vegItemsData2 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "40.99",
-    img: require("../images/mato.jpg"),
+    img: ("./src/images/mato.jpg"),
     alt:"tomatoes",
 }];
 
@@ -563,7 +564,7 @@ let vegItemsData3 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "25.99",
-    img: require("../images/g-beans.jpg"),
+    img: ("./src/images/g-beans.jpg"),
     alt:"green beans",
 },
 {
@@ -575,7 +576,7 @@ let vegItemsData3 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "30.99",
-    img: require("../images/poku.jpg"),
+    img: ("./src/images/poku.jpg"),
     alt:"pumpkin",
 },
 {
@@ -587,7 +588,7 @@ let vegItemsData3 = [{
     star4: "bi bi-star-fill",
     star5: "bi bi-star",
     price: "35.99",
-    img: require("../images/corn.jpg"),
+    img: ("./src/images/corn.jpg"),
     alt: "corn",
 },
 {
@@ -599,7 +600,7 @@ let vegItemsData3 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "40.99",
-    img: require("../images/egg-plant.jpg"),
+    img: ("./src/images/egg-plant.jpg"),
     alt:"egg plant",
 }];
 let generateVegItems3 = () => {
@@ -643,7 +644,7 @@ let vegItemsData4 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "25.99",
-    img: require("../images/broccoli.jpg"),
+    img: ("./src/images/broccoli.jpg"),
     alt:"broccoli",
 },
 {
@@ -655,7 +656,7 @@ let vegItemsData4 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "30.99",
-    img: require("../images/paprika.jpg"),
+    img: ("./src/images/paprika.jpg"),
     alt:"paprika",
 },
 {
@@ -667,7 +668,7 @@ let vegItemsData4 = [{
     star4: "bi bi-star-fill",
     star5: "bi bi-star",
     price: "35.99",
-    img: require("../images/lettuce.jpg"),
+    img: ("./src/images/lettuce.jpg"),
     alt: "lettuce",
 },
 {
@@ -679,7 +680,7 @@ let vegItemsData4 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "40.99",
-    img: require("../images/lemon.jpg"),
+    img: ("./src/images/lemon.jpg"),
     alt:"lemon",
 }];
 let generateVegItems4 = () => {
@@ -787,7 +788,7 @@ let meatItemsData = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "25.99",
-    img: require("../images/lobster.jpg"),
+    img: ("./src/images/lobster.jpg"),
     alt:"lobster"
 },
 {
@@ -799,7 +800,7 @@ let meatItemsData = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "30.99",
-    img: require("../images/pork.jpg"),
+    img: ("./src/images/pork.jpg"),
     alt:"pork",
 },
 {
@@ -811,7 +812,7 @@ let meatItemsData = [{
     star4: "bi bi-star-fill",
     star5: "bi bi-star",
     price: "35.99",
-    img: require("../images/catfish.jpg"),
+    img: ("./src/images/catfish.jpg"),
     alt: "catfish",
 },
 {
@@ -823,7 +824,7 @@ let meatItemsData = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "40.99",
-    img: require("../images/chicken.jpg"),
+    img: ("./src/images/chicken.jpg"),
     alt:"chicken",
 }];
 
@@ -868,7 +869,7 @@ let meatItemsData2 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "25.99",
-    img: require("../images/beef.jpeg"),
+    img: ("./src/images/beef.jpeg"),
     alt:"beef",
 },
 {
@@ -880,7 +881,7 @@ let meatItemsData2 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "30.99",
-    img: require("../images/mutton.jpg"),
+    img: ("./src/images/mutton.jpg"),
     alt:"mutton",
 },
 {
@@ -892,7 +893,7 @@ let meatItemsData2 = [{
     star4: "bi bi-star-fill",
     star5: "bi bi-star",
     price: "35.99",
-    img: require("../images/shrimps.jpg"),
+    img: ("./src/images/shrimps.jpg"),
     alt: "shrimps",
 },
 {
@@ -904,7 +905,7 @@ let meatItemsData2 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "40.99",
-    img: require("../images/turkey.jpg"),
+    img: ("./src/images/turkey.jpg"),
     alt:"turkey",
 }];
 
@@ -949,7 +950,7 @@ let meatItemsData3 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "25.99",
-    img: require("../images/oyster.jpg"),
+    img: ("./src/images/oyster.jpg"),
     alt:"oyster",
 },
 {
@@ -961,7 +962,7 @@ let meatItemsData3 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "30.99",
-    img: require("../images/mackerel.jpg"),
+    img: ("./src/images/mackerel.jpg"),
     alt:"mackerel",
 },
 {
@@ -973,7 +974,7 @@ let meatItemsData3 = [{
     star4: "bi bi-star-fill",
     star5: "bi bi-star",
     price: "35.99",
-    img: require("../images/snail.jpg"),
+    img: ("./src/images/snail.jpg"),
     alt: "snail",
 },
 {
@@ -985,7 +986,7 @@ let meatItemsData3 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "40.99",
-    img: require("../images/crabs.jpg"),
+    img: ("./src/images/crabs.jpg"),
     alt:"crabs",
 }];
 let generateMeatItems3 = () => {
@@ -1029,7 +1030,7 @@ let meatItemsData4 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "25.99",
-    img: require("../images/star-fish.jpg"),
+    img: ("./src/images/star-fish.jpg"),
     alt:"star fish",
 },
 {
@@ -1041,7 +1042,7 @@ let meatItemsData4 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "30.99",
-    img: require("../images/lobster.jpg"),
+    img: ("./src/images/lobster.jpg"),
     alt:"lobster",
 },
 {
@@ -1053,7 +1054,7 @@ let meatItemsData4 = [{
     star4: "bi bi-star-fill",
     star5: "bi bi-star",
     price: "35.99",
-    img: require("../images/ray.jpg"),
+    img: ("./src/images/ray.jpg"),
     alt: "ray",
 },
 {
@@ -1065,7 +1066,7 @@ let meatItemsData4 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "40.99",
-    img: require("../images/clown.jpg"),
+    img: ("./src/images/clown.jpg"),
     alt:"clown",
 }];
 let generateMeatItems4 = () => {
@@ -1176,7 +1177,7 @@ let dairyItemsData = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "25.99",
-    img: require("../images/milk.webp"),
+    img: ("./src/images/milk.webp"),
     alt:"milk"
 },
 {
@@ -1188,7 +1189,7 @@ let dairyItemsData = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "30.99",
-    img: require("../images/cheese.webp"),
+    img: ("./src/images/cheese.webp"),
     alt:"cheese",
 },
 {
@@ -1200,7 +1201,7 @@ let dairyItemsData = [{
     star4: "bi bi-star-fill",
     star5: "bi bi-star",
     price: "35.99",
-    img: require("../images/curd.jpg"),
+    img: ("./src/images/curd.jpg"),
     alt: "curd",
 },
 {
@@ -1212,7 +1213,7 @@ let dairyItemsData = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "40.99",
-    img: require("../images/kefir.jpg"),
+    img: ("./src/images/kefir.jpg"),
     alt:"kefir",
 }];
 
@@ -1237,7 +1238,7 @@ let generateDairyItems = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button onclick="addToCart('${id}')" onclick="addToCart('${id}')" type="submit" class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -1257,7 +1258,7 @@ let dairyItemsData2 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "25.99",
-    img: require("../images/yug.jpg"),
+    img: ("./src/images/yug.jpg"),
     alt:"yougurt",
 },
 {
@@ -1269,7 +1270,7 @@ let dairyItemsData2 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "30.99",
-    img: require("../images/ghee.jpg"),
+    img: ("./src/images/ghee.jpg"),
     alt:"ghee",
 },
 {
@@ -1281,7 +1282,7 @@ let dairyItemsData2 = [{
     star4: "bi bi-star-fill",
     star5: "bi bi-star",
     price: "35.99",
-    img: require("../images/mag.jpg"),
+    img: ("./src/images/mag.jpg"),
     alt: "magarine",
 },
 {
@@ -1293,7 +1294,7 @@ let dairyItemsData2 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "40.99",
-    img: require("../images/eggs.jpeg"),
+    img: ("./src/images/eggs.jpeg"),
     alt:"eggs",
 }];
 
@@ -1318,7 +1319,7 @@ let generateDairyItems2 = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button onclick="addToCart('${id}')" type="submit" class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -1338,7 +1339,7 @@ let dairyItemsData3 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "25.99",
-    img: require("../images/sour.jpeg"),
+    img: ("./src/images/sour.jpeg"),
     alt:"sour milk",
 },
 {
@@ -1350,7 +1351,7 @@ let dairyItemsData3 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "30.99",
-    img: require("../images/butter.jpg"),
+    img: ("./src/images/butter.jpg"),
     alt:"butter",
 },
 {
@@ -1362,7 +1363,7 @@ let dairyItemsData3 = [{
     star4: "bi bi-star-fill",
     star5: "bi bi-star",
     price: "35.99",
-    img: require("../images/feta.jpg"),
+    img: ("./src/images/feta.jpg"),
     alt: "feta",
 },
 {
@@ -1374,7 +1375,7 @@ let dairyItemsData3 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "40.99",
-    img: require("../images/pudding.jpg"),
+    img: ("./src/images/pudding.jpg"),
     alt:"pudding",
 }];
 let generateDairyItems3 = () => {
@@ -1398,7 +1399,7 @@ let generateDairyItems3 = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button onclick="addToCart('${id}')" type="submit" class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -1418,7 +1419,7 @@ let dairyItemsData4 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "25.99",
-    img: require("../images/condensed.jpg"),
+    img: ("./src/images/condensed.jpg"),
     alt:"condensed milk",
 },
 {
@@ -1430,7 +1431,7 @@ let dairyItemsData4 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "30.99",
-    img: require("../images/quark.jpg"),
+    img: ("./src/images/quark.jpg"),
     alt:"quark",
 },
 {
@@ -1442,7 +1443,7 @@ let dairyItemsData4 = [{
     star4: "bi bi-star-fill",
     star5: "bi bi-star",
     price: "35.99",
-    img: require("../images/sherbet.jpg"),
+    img: ("./src/images/sherbet.jpg"),
     alt: "sherbet",
 },
 {
@@ -1454,7 +1455,7 @@ let dairyItemsData4 = [{
     star4: "bi bi-star",
     star5: "bi bi-star",
     price: "40.99",
-    img: require("../images/kefir.jpg"),
+    img: ("./src/images/kefir.jpg"),
     alt:"powerdered milk",
 }];
 let generateDairyItems4 = () => {
@@ -1478,7 +1479,7 @@ let generateDairyItems4 = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button onclick="addToCart('${id}')" type="submit" class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -1553,6 +1554,9 @@ function createIndicators4 (){
 
 
 // //cart 
+
+
+
 
 
 

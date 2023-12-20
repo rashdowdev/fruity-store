@@ -100,15 +100,16 @@ header{
     }
 
     .shopping{
+      padding-top: 3px;
       position: relative;
       display: flex;
        .cart{
-          span{
+          svg{
              color: $primary;
           }
         }
         .cart:hover{
-          span{
+          svg{
              color: $third-color;
           }
         }
@@ -131,7 +132,7 @@ header{
       .offcanvas-body{
          overflow-y: auto;
          max-height: 650px;
-         .cart-content{
+         .shop{
             display: grid !important;
             grid-template-columns: 32% 50% 10%;
             gap: 5px;
@@ -587,10 +588,10 @@ main{
          }
 
    }
-
-   #foot{
+}
+   footer{
+      background-color: $sixth-color;
       .container-xxl{
-         background-color: $sixth-color;
          .col-lg-3{
             margin-bottom: 30px !important;
          }
@@ -672,24 +673,28 @@ main{
             width: 40px;
         }
      }
-   }
-}
 
-footer{
-   background-color: #111;
-   height: 25px;
-   width: 100%;
-   position: relative;
-   margin-top: -25px;
-   clear: both;
-   
-   h6{
-      color: $white;
-      font-size: 12px;
-      text-transform: capitalize;
-      padding: 5px 0;
+     .foot{
+      background-color: #111;
+      height: 25px;
+      width: 100%;
+      position: relative;
+      margin-top: -10px;
+      clear: both;
+      
+      h6{
+         color: $white;
+         font-size: 12px;
+         text-transform: capitalize;
+         padding: 5px 0;
+      }
    }
-}
+
+   }
+  
+
+
+
 
 @media only screen and (min-width: 768px){
    body{
@@ -936,48 +941,47 @@ footer{
          }
    
       }
-   
-      #foot{
-
-         h1{
-            font-size: 18px !important;
-         }
-          
-         p{
-            font-size: 12px !important;
-         }
-
-         i{
-            font-size: 14px !important;
-         }
-
-         .links{
-            .q-link{
-               font-size: 12px;
-               padding-bottom: 13px;
-           }
-         }
-         input{
-            height: 28px;
-            font-size: 12px !important;
-         }
-
-        .input-group-text{
-         height: 28px !important;
-         width: 30px !important;
-         display: flex;
-         i{
-            font-size: 13px !important;
-            
-         }
-        }
-
-        .btn{
-         height: 25px !important;
-         font-size: 12px !important;
-        }
-      }
    }    
+}
+footer{
+
+   h1{
+      font-size: 18px !important;
+   }
+    
+   p{
+      font-size: 12px !important;
+   }
+
+   i{
+      font-size: 14px !important;
+   }
+
+   .links{
+      .q-link{
+         font-size: 12px;
+         padding-bottom: 13px;
+     }
+   }
+   input{
+      height: 28px;
+      font-size: 12px !important;
+   }
+
+  .input-group-text{
+   height: 28px !important;
+   width: 30px !important;
+   display: flex;
+   i{
+      font-size: 13px !important;
+      
+   }
+  }
+
+  .btn{
+   height: 25px !important;
+   font-size: 12px !important;
+  }
 }
    
 @media only screen and (min-width: 1000px){
