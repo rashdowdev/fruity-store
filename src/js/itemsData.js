@@ -1,9 +1,9 @@
 
 
 let basket = JSON.parse(localStorage.getItem("data")) || [];
-let cartItem = document.getElementById("shop");
+let cartBox = document.getElementById("prod");
 let label = document.getElementById("label")
-let cart = document.getElementById("prod");
+// let cart = document.getElementById("prod");
 let items = [
   {
       id: "ft-1",
@@ -608,26 +608,16 @@ let items = [
   {
       id: "dy-3",
       name: "curd",
-      star1: "bi bi-star-fill",
-      star2: "bi bi-star-fill",
-      star3: "bi bi-star-fill",
-      star4: "bi bi-star-fill",
-      star5: "bi bi-star",
       price: "35.99",
       img: ("./src/images/curd.jpg"),
       alt: "curd",
   },
   {
-      id: "dy-4", 
-      name: "kefir",
-      star1: "bi bi-star-fill",
-      star2: "bi bi-star-fill",
-      star3: "bi bi-star-fill",
-      star4: "bi bi-star",
-      star5: "bi bi-star",
-      price: "40.99",
-      img: ("./src/images/kefir.jpg"),
-      alt:"kefir",
+    id: "dy-4",
+    name: "kefir",
+    price: "45.99",
+    img: ("./src/images/kefir.jpg"),
+    alt: "kefir",
   },
   {
       id: "dy-5",
@@ -763,7 +753,7 @@ let items = [
   },
   {
       id: "dy-16", 
-      name: "powerdered milk",
+      name: "powdered milk",
       star1: "bi bi-star-fill",
       star2: "bi bi-star-fill",
       star3: "bi bi-star-fill",
@@ -771,65 +761,60 @@ let items = [
       star5: "bi bi-star",
       price: "40.99",
       img: ("./src/images/kefir.jpg"),
-      alt:"powerdered milk",
+      alt:"powdered milk",
   }
   
   
 ];
 
 let generateItems = ()=>{
-   /* return (cart.innerHTML = imageData.map((k)=>{
-        let { id, name, price, img, alt } = k; 
-        let search = basket.find((x)=>x.id===id) || [];
-        return`
-        
-          <img src="${img}" alt="${alt}" class="img-fluid">
-          <div class="cart-des">
-            <div class="prd-title">${name}</div>
-            <div class="prd-price">${price}</div>
-            <div class="prod-btn">
-              <i onclick="decrement('${id}')" class="bi bi-dash"></i>
-              <div id="${id}" class="prod-quantity">
-              ${search.item === undefined ? 0 : search.item}</div>
-              
-              <i onclick="increment('${id}')" class="bi bi-plus"></i>
-            </div>
-          </div>
-          <i class="bi bi-trash3-fill remove-item"></i>
-        
-        `
-      
-      })
-      
-      .join(""));*/
   if(basket.length !== 0){
-    return(cartItem.innerHTML= basket.map((x)=>{
+    return(cartBox.innerHTML= basket.map((x)=>{
       let {id, item} = x;
-      let search = items.find((y)=>y.id ===id) ||[];
+     
+      let search = items.find((y)=>y.id ===id) || [];
+      let {img, alt, name, price} = search;
       return `
-      <img src="${search.img}" alt="${search.alt}" class="img-fluid">
-          <div class="cart-des">
-            <div class="prd-title">${search.name}</div>
-            <div class="prd-price">${search.price}</div>
-            <div class="prod-btn">
-              <i onclick="decrement('${search.id}')" class="bi bi-dash"></i>
-              <div id="${search.id}" class="prod-quantity">${item}</div>
-              
-              <i onclick="increment('${search.id}')" class="bi bi-plus"></i>
-            </div>
-          </div>
-          <i class="bi bi-trash3-fill remove-item"></i>
+     <div class="shop" id="shop">
+    <img src="${img}" alt="${alt}" class="img-fluid">
+      <div class="cart-des">
+       <div class="prd-title">${name}</div>
+       <div class="prd-price" id="prd-price">
+        N ${Math.round(price * item * 100) / 100 }
+       </div>
+       <div class="prod-btn">
+        <i onclick="decrement('${id}')" class="bi bi-dash"></i>
+         <div id="${id}" class="prod-quantity">${item}</div>
+        <i onclick="increment('${id}')" class="bi bi-plus"></i>
+       </div>
+      </div>
+      <i  onclick="removeItem('${id}')" class="bi bi-trash3-fill remove-item"></i>
+      </div>
+        
       `;
     }).join("")); 
     
-  }else{
-    cartItem.innerHTML= ``;
+  }else{ 
+    cartBox.innerHTML= `
+    <div>
+    <h4>this is empty</h4>
+    <a href="index.html">
+      <button class="homePage">back to home</button>
+    </a> 
+  </div>
+    `;
     label.innerHTML=`
-    <h2>this is empty</h2>
-    `
+   
+    `;
   }
 }; generateItems();
 
+let cumulative = ()=>{
+  let counterValue = basket.map((x)=> x.item).reduce((x,y)=> x + y, 0);
+  let  cartInd= document.getElementById("quantity");
+  cartInd.innerHTML = counterValue > 99? "99+" : counterValue;
+ 
+};cumulative();
 
 let addToCart = (id) =>{
      
@@ -845,11 +830,14 @@ let addToCart = (id) =>{
       search.item +=1;
       
     }else{
-      alert("done")
+      alert("Item Already Added")
       return
     }
-    
-  cumulative();  
+    generateItems();
+    totalAmount();
+    cumulative();  
+  
+  
   localStorage.setItem("data", JSON.stringify(basket));
 };
 let increment = (id) => {
@@ -863,6 +851,7 @@ let increment = (id) => {
   } else {
     search.item += 1;
   }
+  generateItems();
   update(selectedItem);
   localStorage.setItem("data", JSON.stringify(basket));
 };
@@ -886,27 +875,63 @@ let update = (id)=>{
   let search = basket.find((x) => x.id === id);
   document.getElementById(id).innerHTML = search.item;
   cumulative();
+  totalAmount();
 
 };
 
-let cumulative = ()=>{
-  let  cartInd= document.getElementById("quantity");
-  cartInd.innerHTML = basket.map((x)=> x.item).reduce((x,y)=> x + y,0);
 
-};cumulative();
-// let decrement = document.querySelectorAll(".bi-plus");
-// let increment = document.querySelectorAll(".bi-dash");
-// let update = document.querySelector(".prod-quantity");
+let removeItem =(id)=>{
+  let selectedItem =id;
+  basket=basket.filter((x)=>x.id !==selectedItem);
+  
+  generateItems();
 
-// decrement.addEventListener("click", function (id) {
-    
-//     console.log(id);
-// });
+  cumulative();
+  
+  localStorage.setItem("data", JSON.stringify(basket));
+  totalAmount();
+};
 
-// increment.addEventListener("click", function (id) {
-    
-//     console.log(id);
-// });
+let totalAmount = ()=>{
+    if(basket.length !==0){
+        let amount = basket.map((x)=>{
+          let {item,id} =x;
+          let search = items.find((y)=>y.id===id) || [];
+          return search.price * item;
+        }).reduce((x,y)=>x+y,0);
+        label.innerHTML = `
+        <div class="total">
+         <div class="total-title">total: N</div>
+         <div class="total-price" id="total">0</div>
+        </div>
+        <button type="submit" onclick="checkOut()" id="checkout">check out</button>
+        <button type="submit" onclick="clearCart()" id="clear-cart">clear cart</button> 
+        `
+        let total = document.getElementById("total");total.innerHTML= Math.round(amount * 100) / 100;
+        
+    } 
+    else{
+      let total = document.getElementById("total");total.innerHTML= 0;
+    }
+}; 
+totalAmount();
+
+
+
+let clearCart = ()=>{
+  
+  basket=[];
+  generateItems();
+  cumulative();
+  localStorage.setItem("data", JSON.stringify(basket));
+}
+let checkOut = ()=>{
+  alert("Your Order Has Been Placed")
+  basket=[];
+  generateItems();
+  cumulative();
+  localStorage.setItem("data", JSON.stringify(basket));
+}
 
 
 

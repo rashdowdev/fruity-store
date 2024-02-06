@@ -73,7 +73,7 @@ let generateFruitItems = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button type="submit" onclick="addToCart('${id}')" class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -154,7 +154,7 @@ let generateFruitItems2 = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button type="submit"onclick="addToCart('${id}')"  class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -234,7 +234,7 @@ let generateFruitItems3 = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button type="submit" onclick="addToCart('${id}')" class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -314,7 +314,7 @@ let generateFruitItems4 = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button type="submit" onclick="addToCart('${id}')" class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -463,7 +463,7 @@ let generateVegItems = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button type="submit" onclick="addToCart('${id}')" class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -544,7 +544,7 @@ let generateVegItems2 = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button type="submit" onclick="addToCart('${id}')" class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -624,7 +624,7 @@ let generateVegItems3 = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button type="submit"onclick="addToCart('${id}')"  class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -704,7 +704,7 @@ let generateVegItems4 = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button type="submit" onclick="addToCart('${id}')" class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -849,7 +849,7 @@ let generateMeatItems = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button type="submit" onclick="addToCart('${id}')" class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -930,7 +930,7 @@ let generateMeatItems2 = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button type="submit" onclick="addToCart('${id}')" class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -1010,7 +1010,7 @@ let generateMeatItems3 = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button type="submit"onclick="addToCart('${id}')"  class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -1090,7 +1090,7 @@ let generateMeatItems4 = () => {
                     <i class= "${star5}"></i>
                 </div>
                 <p>$ ${price}</p>
-                <button type="submit" class="btn shop" >add to cart</button>
+                <button type="submit" onclick="addToCart('${id}')" class="btn shop" >add to cart</button>
             </div>
           </div>
         </div>
@@ -1205,16 +1205,16 @@ let dairyItemsData = [{
     alt: "curd",
 },
 {
-    id: "dy-4", 
-    name: "kefir",
-    star1: "bi bi-star-fill",
-    star2: "bi bi-star-fill",
-    star3: "bi bi-star-fill",
-    star4: "bi bi-star",
-    star5: "bi bi-star",
-    price: "40.99",
-    img: ("./src/images/kefir.jpg"),
-    alt:"kefir",
+    id: "dy-4",
+      name: "kefir",
+      star1: "bi bi-star-fill",
+      star2: "bi bi-star-fill",
+      star3: "bi bi-star-fill",
+      star4: "bi bi-star-fill",
+      star5: "bi bi-star",
+      price: "35.99",
+      img: ("./src/images/kefir.jpg"),
+      alt: "kefir",
 }];
 
 let generateDairyItems = () => {
@@ -1448,7 +1448,7 @@ let dairyItemsData4 = [{
 },
 {
     id: "dy-16", 
-    name: "powerdered milk",
+    name: "powdered milk",
     star1: "bi bi-star-fill",
     star2: "bi bi-star-fill",
     star3: "bi bi-star-fill",
@@ -1456,7 +1456,7 @@ let dairyItemsData4 = [{
     star5: "bi bi-star",
     price: "40.99",
     img: ("./src/images/kefir.jpg"),
-    alt:"powerdered milk",
+    alt:"powdered-milk",
 }];
 let generateDairyItems4 = () => {
     return (dairyItems4.innerHTML = dairyItemsData4.map((x) => {

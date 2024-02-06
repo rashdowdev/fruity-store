@@ -12,9 +12,11 @@ class theHeader extends HTMLElement{
           </button>
     
             <!--BRAND-->
-          <a class="navbar-brand" href="#">fruitshaven</a>
+          <a class="navbar-brand" href="index.html">
+          fruitshaven
+          </a>
             <!--BRAND-->
-          </div>
+        </div>
     
           <div class="offcanvas offcanvas-start bg-primary" tabindex="-1" id="toggle-bar" aria-labelledby="toggle-barLabel">
             <div class="offcanvas-header">
@@ -106,18 +108,12 @@ class theHeader extends HTMLElement{
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-      <div class="cart-content" id="prod">
-      <div id="label" class="text-center"></div>
-      <div class="shop" id="shop"></div>
-      
+       <div class="cart-content" id="prod">
+        <div class="shop" id="shop"></div>
+        
+       </div>
+       <div id="label" class="text-center"></div>
       </div>
-      <div class="total">
-        <div class="total-title">total</div>
-        <div class="total-price">N0</div>
-      </div>
-      <button type="submit" class="check-out">check out</button>
-      </div>
-    </div>
     </div>
     <div class="offcanvas offcanvas-end bg-primary" tabindex="-1" id="login-box" aria-labelledby="login-boxLabel">
       <div class="offcanvas-body">
