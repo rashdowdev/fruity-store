@@ -796,12 +796,12 @@ let generateItems = ()=>{
     
   }else{ 
     cartBox.innerHTML= `
-    <div>
-    <h4>this is empty</h4>
-    <a href="index.html">
-      <button class="homePage">back to home</button>
-    </a> 
-  </div>
+    <div class="cart-note">
+     <h4>cart is empty</h4>
+     <a href="products.html">
+      <button type="submit" class="home-page">back to items</button>
+     </a> 
+    </div>
     `;
     label.innerHTML=`
    
@@ -901,13 +901,18 @@ let totalAmount = ()=>{
         }).reduce((x,y)=>x+y,0);
         label.innerHTML = `
         <div class="total">
-         <div class="total-title">total: N</div>
-         <div class="total-price" id="total">0</div>
+         <div class="total-title">total: </div>
+         <div class="total-price" id="total">N 0</div>
         </div>
-        <button type="submit" onclick="checkOut()" id="checkout">check out</button>
-        <button type="submit" onclick="clearCart()" id="clear-cart">clear cart</button> 
+        <div class="btns">
+         <button type="submit" class="btn" onclick="checkOut()" id="checkout">check out</button>
+         <button type="submit" class="btn" onclick="clearCart()" id="clear-cart">clear cart</button> 
+        </div>
         `
-        let total = document.getElementById("total");total.innerHTML= Math.round(amount * 100) / 100;
+
+        let total = Math.round(amount * 100) / 100;
+        document.getElementById("total").innerText= "N " + total;
+        
         
     } 
     else{
@@ -924,14 +929,14 @@ let clearCart = ()=>{
   generateItems();
   cumulative();
   localStorage.setItem("data", JSON.stringify(basket));
-}
+};
 let checkOut = ()=>{
   alert("Your Order Has Been Placed")
   basket=[];
   generateItems();
   cumulative();
   localStorage.setItem("data", JSON.stringify(basket));
-}
+};
 
 
 

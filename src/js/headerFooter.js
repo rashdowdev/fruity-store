@@ -28,11 +28,11 @@ class theHeader extends HTMLElement{
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="index.html">home</a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="products.html"  data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item dropdown ">
+                  <button class="nav-link btn dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Products
-                  </a>
-                  <ul class="dropdown-menu">
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-hover">
                     <li><a class="dropdown-item" href="products.html#fruits">fruits</a></li>
                     <li><a class="dropdown-item" href="products.html#veg">vegetables</a></li>
                     <li><a class="dropdown-item" href="products.html#meat">meat</a></li>
@@ -43,18 +43,18 @@ class theHeader extends HTMLElement{
                   <a class="nav-link" href="#banner">about us</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">contact us</a>
+                  <a class="nav-link" href="#contact">contact us</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     sections
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#features">features</a></li>
-                    <li><a class="dropdown-item" href="#offer">offers</a></li>
-                    <li><a class="dropdown-item" href="#category">category</a></li>
-                    <li><a class="dropdown-item" href="#blog">blog</a></li>
-                    <li><a class="dropdown-item" href="#reviews">reviews</a></li>
+                    <li><a class="dropdown-item" href="index.html#features">features</a></li>
+                    <li><a class="dropdown-item" href="index.html#offer">offers</a></li>
+                    <li><a class="dropdown-item" href="index.html#category">category</a></li>
+                    <li><a class="dropdown-item" href="index.html#blog">blog</a></li>
+                    <li><a class="dropdown-item" href="index.html#reviews">reviews</a></li>
                   </ul>
                 </li>
               </ul>
@@ -103,10 +103,7 @@ class theHeader extends HTMLElement{
         </div>
     </nav>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="cart" aria-labelledby="cartLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
+      
       <div class="offcanvas-body">
        <div class="cart-content" id="prod">
         <div class="shop" id="shop"></div>
@@ -137,7 +134,7 @@ class theHeader extends HTMLElement{
               <span class="input-group-text">
                   <i class="bi bi-key-fill"></i>
               </span>
-              <input type="password" class="form-control" id="password" placeholder="enter your password">
+              <input type="password" class="form-control" id="password" placeholder="enter password">
                <span class="input-group-text">
                   <span class="info" data-bs-toggle="tooltip"data-bs-placement="bottom" title="Enter a password to sign up">
                       <i class="bi bi-question-circle text-muted"></i>
@@ -183,7 +180,7 @@ class theFooter extends HTMLElement{
      <div class="col-md-2 col-lg-2">
          <h1 class="text-center">quick links</h1>
          <div class="links text-center">
-         <a href="#" class="q-link">
+         <a href="index.html" class="q-link">
              <i class="bi bi-arrow-right"></i>home
          </a>
          <a href="products.html" class="q-link">
@@ -200,7 +197,7 @@ class theFooter extends HTMLElement{
          </a>
          </div>
      </div>
-     <div class="col-md-3 col-lg-2">
+     <div class="col-md-3 col-lg-3" id="contact">
          <h1 class="text-center">contact info</h1>
          <div class="links">
          <div class="link">
@@ -227,14 +224,14 @@ class theFooter extends HTMLElement{
        <form action="#" class="">
            <div class="mb-3 input-group">
            <span class="input-group-text">
-           <i class="bi bi-envelope-fill"></i>
+            <i class="bi bi-envelope-fill"></i>
            </span>
            <input type="email
            " class="form-control" id="emaill" placeholder="e.g. myemail@email.com">
            <span class="input-group-text">
-               <span class="info" data-bs-toggle="tooltip" data-bs-placement="top" title="Enter an email address to get latest news">
-               <i class="bi bi-question-circle text-muted"></i>
-               </span>
+            <span class="info"  data-bs-placement="top" title="Enter an email address to get the latest news">
+              <i class="bi bi-question-circle text-muted"></i>
+            </span>
            </span>
            </div>
            <button class="btn mb-2">subscribe</button>
@@ -257,16 +254,6 @@ class theFooter extends HTMLElement{
 
 customElements.define("the-footer", theFooter);
 
-
-// const navHead =
-// document.querySelector(".nav-bar");
-// fetch("../navbar.html")
-// .then(res=>res.text())
-// .then(data=>{
-//   navHead.innerHTML=data
-//   const parser = new DOMParser();
-  
-// });
 
 
 

@@ -24,17 +24,44 @@ header{
     .offcanvas-start{
       top: 0 !important;
       width: 80% !important;
+      
       .offcanvas-header{
          button{
             padding-top: 15px !important;
          }
       }
+      .dropdown{
+         width: 90px !important;
+      }
+      .dropdown-toggle{
+         width: fit-content !important;
+      }
+      
+      .dropdown-menu{
+        min-width: 100px !important;
+         transition: .2s linear !important;
+         text-align: center !important;
+         background-color: #797979 !important;
+         li{
+            width: 100px !important; 
+            a{
+               text-transform: capitalize !important;
+            }
+         }
+      }
       .nav-item{
         padding: 5px;
+        width: fit-content !important;
+        transition: all .5s ease-in-out !important;
+       
         .nav-link{
           text-transform: capitalize;
           font-size: 18px !important;
           color: #f3f3f3 !important;
+          
+        }
+        .nav-link:hover{
+         color: $third-color !important;
         }
       }
     }
@@ -53,6 +80,7 @@ header{
     }
 
     .navbar-toggler{
+      
       padding: 2px !important;
       border: none !important;
       box-shadow: none !important;
@@ -83,6 +111,10 @@ header{
          margin-right: 0 !important;
          border-top-right-radius: 0 !important;
          border-bottom-right-radius: 0 !important;
+         box-shadow: none !important;
+      }
+      input:hover{
+         border-color: $third-color !important;
       }
       .btn{
          background: $danger;
@@ -106,6 +138,7 @@ header{
        .cart{
           svg{
              color: $primary;
+             margin: 0 0px 2px 10px !important;
           }
         }
         .cart:hover{
@@ -119,6 +152,7 @@ header{
          color: $white;
          position: absolute;
          display: flex;
+         
          left: 80%;
          align-items: center;
          justify-content: center;
@@ -130,8 +164,11 @@ header{
      #cart{
       overflow: hidden!important;
       .offcanvas-body{
-         overflow-y: auto;
-         max-height: 650px;
+         height: 100vh !important;
+         .cart-content{
+            height: 450px !important;
+            overflow-y: auto !important;
+           }
          .shop{
             display: grid !important;
             grid-template-columns: 32% 50% 10%;
@@ -143,6 +180,28 @@ header{
               height: 75px;
               object-fit: cover;
               border-radius: 3px;
+            }
+         }
+         .cart-note{
+            margin: 0 auto;
+            margin-top: 35px;
+            text-align: center;
+            h4{
+               font-size: 20px;
+               text-transform: capitalize;
+              
+            }  
+           a{
+             text-decoration: none !important;
+             text-transform: capitalize;
+             .home-page{
+               @include btn;
+               width: fit-content;
+               border: 2px solid $third-color !important;
+             }
+             .home-page:hover{
+               background-color: $third-color;
+             }
             }
          }
          .cart-des{
@@ -191,39 +250,42 @@ header{
           .remove-item:hover{
             color: red;
           }
-          .total{
-            display: flex;
-            justify-content: flex-end;
-            border-top: 1px solid #111;
-            padding-top: 20px;
-            margin: 0 auto;
-            margin-bottom: 20px;
-            width: 90%;
-          }
-        
-          .total-title{
-            font-size: 16px;
-            text-transform: capitalize;
-            padding-right: 5px;
-          }
-        
-          .total-price{
-            font-weight: 300; 
-          }
-        
-          button{
-            width: 100px;
-            margin: 0 auto;
-            width: fit-content;
-            background-color: var(--bg-color);
-            border-radius: 3px;
-            color: #fff;
-            height: 25px;
-            border: 1px 1px var(--bg-color);
-            text-transform: capitalize;
-          }
-          button:hover{
-            background-color: var(--label);
+          #label{
+            .total{
+               display: flex;
+               justify-content: flex-end;
+               border-top: 1px solid #111;
+               padding-top: 20px;
+               margin: 0 auto;
+               margin-bottom: 20px;
+               margin-top: 5px;
+               width: 90%;
+               .total-title{
+                  font-size: 16px;
+                  text-transform: capitalize;
+                  padding-right: 5px;
+                  font-weight: 800;
+                }
+                .total-price{
+                  font-weight: 500; 
+                }
+                
+             }
+             .btns{
+               display: flex;
+               width: 220px;
+               margin: 0 auto;
+               .btn{
+                  @include btn;
+                  width: fit-content;
+                     border: 2px solid $third-color !important;
+   
+                }
+                .btn:hover:hover{
+                  background-color: $third-color;
+                }
+             }
+             
           }
       }
      }
@@ -235,11 +297,12 @@ header{
          height: 30px !important;
          width: 30px !important;
          margin-top: 1px !important;
+         margin-left: 10px;
       }
     }
     .login-box:hover{
-      span{
-         color: $third-color; 
+      svg{
+         color: $third-color !important; 
       }
     }
     #login-box{
@@ -299,11 +362,11 @@ header{
 main{
    padding-bottom: 25px;
    #banner{
-      margin-bottom: 50px;
+      margin: 70px 0 50px 0;
       .banner-bkg{
          height: 100vh;
          width: 100%;
-         background-image: linear-gradient(#0000004d, rgba(0,0,0,0.3)), url(/src/images/wall-papper.jpg);
+         background-image: linear-gradient(#0000004d, rgba(0,0,0,0.3)), url(/src/images/wall-papper2.jpg);
          background-repeat: no-repeat;
          background-size: cover;
          background-position: center;
@@ -314,7 +377,6 @@ main{
          h1{
             @include h1;
             font-size: 35px !important;
-            margin-top: 10px !important;
             text-shadow: 0 0 2px #111;
          }
          p{
@@ -323,6 +385,11 @@ main{
             text-shadow: 0 0 4px #111;
             font-weight: 0 !important;
             text-align: center;
+         }
+         a{
+            text-decoration: none;
+            display: block;
+            margin: 0 auto;
          }
          .btn{
            @include btn;
@@ -341,38 +408,51 @@ main{
        h1{
       @include h1
        }
-      
+      .fts{
+
+         width: 230px !important;
+         height: 250px !important;
+      }
       .card{
-            border: 2px solid #111 !important;
-            border-radius: 0;
+           border: 2px solid #111 !important;
+           border-radius: 0;
+            img{
+               border: 1px solid #111 !important;
+               height: 183px !important;
+               // width: fit-content !important;
+               // margin: 0 auto !important;
+            }
+            p{
+               @include btn;
+               height: 25px !important;
+               padding: 0 5px !important;
+               margin-top: 7px !important;
+            } 
       }
-      img{
-         border: 1px solid #111 !important;
-         border: 10px;
-         height: 187px;
-         width: 187px;
-      }
-      h6{
-         @include btn;
-         height: 25px !important;
-         padding: 0 5px !important;
-         margin-top: 7px !important;
-      } 
+     
    }
 
    #offer{
       padding-top: 100px;
-      margin-bottom: 50px !important;
+      padding-bottom: 50px !important;
+      .carousel-inner{
+         width: 350px !important;
+         height: 350px !important;
+         margin: 0 auto !important;
+         display: block !important;
+       }
       h1{
-         @include h1
+         @include h1;
        }
       .carousel-item{
          @include carousel;
          border-radius: 40px !important;
       }
-      img{
-         border-radius: 40px;
+      .carousel-item.active, .pointer-event, .container-md, .carousel-inner, .carousel-slide {
+        
+         border-radius: 40px !important;
       }
+     
       h5{
          font-size: 28px;
          color: $secondary;
@@ -391,17 +471,26 @@ main{
          background-color: transparent;
       }
       .ind.active{
-         background-color: $secondary;
+         background-color: $third-color;
       }
-
-      .carousel-control-prev{
-         left: -20px;
+      .carousel-control-prev, .carousel-control-next{
+         width: fit-content !important;
+         height: fit-content !important;
          color: $white;
+         margin-top: 40% !important;
+         span{
+            font-weight: 550;
+            padding: 3px ;
+         }
+         .carousel-control-prev{
+            left: -12px;
+         }  
+         .carousel-control-next{
+            right: -12px;
+         }
+         
       }
-      .carousel-control-next{
-         right: -20px;
-         color: $white;
-      }
+      
    }
 
    #category{
@@ -496,10 +585,14 @@ main{
          }
    
          .btn{
+            @include btn;
             background: $primary;
             margin: 0 auto;
             color: $white;
             text-transform: capitalize;
+         }
+         .btn:hover{
+            background-color: $third-color;
          }
       }
    }
@@ -513,7 +606,9 @@ main{
 
       .blog-img{
          height: 240px;
-         width: 100%;
+         width: 350px;
+         margin: 0 auto;
+         margin-bottom: 10px !important;
          img{
             display: block;
             width: 100%;
@@ -525,11 +620,18 @@ main{
       .row{
          margin-bottom: 20px;
       }
-
+      .blog-date, .blog-des, .blog-read-more, .stars,  h3{
+         width: 350px !important;
+         margin: 0 auto !important;
+      }
       .stars{
-         margin-top: 10px;
+         // margin: 0 auto !important;
+         // margin-top: 10px !important;
+         // padding-left: 20px !important;
+         // width: 350px !important;
          i{
             @include i;
+            margin-left: 4px !important;
          }
       }
 
@@ -537,6 +639,7 @@ main{
          font-size: 28;
          color: $primary;
          text-transform: capitalize;
+         width: 350px;
       }
       small{
          font-weight: 700 !important;
@@ -544,6 +647,7 @@ main{
          text-transform: capitalize;
          margin-bottom: 5px;
       }
+      
 
       .btn{
          @include btn;
@@ -562,6 +666,9 @@ main{
       }
          .carousel{
             box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.08);
+               width: 351px !important;
+               margin: 0 auto !important;
+         
          }
          .carousel-item{
             @include carousel;
@@ -627,6 +734,7 @@ footer{
          margin: 0 auto;
          .link{
             display: flex;
+            margin-left: 45px !important;
          }
          .q-link{
             font-size: 14px;
@@ -637,28 +745,31 @@ footer{
         }
         .q-link:hover{
          padding-right: 10px;
+         transition: all .2s ease-in-out !important;
         }
       }
-   
-     input{
-      height: 38px;
-      
-     }
-     input:focus{
-      outline: 1px solid $third-color !important;
-      box-shadow: none;
-     }
-
-     .input-group-text{
-      height: 38px;
-      width: 42px;
-     }
+      .input-group{
+         width: 340px !important;
+         margin: 0 auto !important;
+         .input-group-text{
+            height: 38px !important;
+            width: 40px !important;
+           }
+         input{
+            height: 38px;
+            box-shadow: none !important;
+           }
+           input:focus{
+            outline: 0.5px solid $third-color !important;
+           }
+      }
    
      .btn{
       @include btn;
       color: $fourth-color !important;
       background: transparent;
-      margin-bottom: 20px !important;
+      text-align: center !important;
+      margin: 20px 42% !important;
       border: 1px solid $fifth-color;
      }
      .btn:hover{
@@ -677,8 +788,9 @@ footer{
 
      .foot{
       background-color: #111;
-      height: 25px;
+      height: fit-content;
       width: 100%;
+      text-align: center;
       position: relative;
       margin-top: -10px;
       clear: both;
@@ -687,7 +799,7 @@ footer{
          color: $white;
          font-size: 12px;
          text-transform: capitalize;
-         padding: 5px 0;
+         padding: 2px 0;
       }
    }
 
@@ -717,6 +829,9 @@ footer{
             font-size: 18px;
          }
          .offcanvas-start{
+            .dropdown:hover .dropdown-menu{
+               display: block !important;
+            }
             .nav-item{
                
                .nav-link{
@@ -748,13 +863,15 @@ footer{
             display: block !important;
          }
       }
-
+      .nav-icons{
+         display: none;
+      }
       #search-bar{
          input{
             @include input;
             height: 26px !important;
             margin-top: 3px !important;
-            width: 170px !important;
+            width: 150px !important;
             font-size: 12px !important;
          }
          .btn{
@@ -771,12 +888,49 @@ footer{
       
       #cart, .offcanvas{
          height: 380px !important;
-         width: 37% !important;
+         width: 35% !important;
+        
       }
+      .offcanvas-body{
+         .cart-content{
+            max-height: 200px !important;
+            .shop{
+               
+               img{
+                 width: 72px !important;
+                 height: 72px !important;
+                
+               }
+            }
+            .cart-des{
+               .prd-title{
+                  font-size: 17px !important;
+                }
+              
+                .prd-price{
+                  font-size: 14px !important;
+                }
+                .prod-btn{
+                  width: 55px !important;
+                  
+                  .bi-dash, .bi-plus{
+                     font-size: 14px !important;
+                  }
+                }
+                }
+                
+             }
+   
+             .remove-item{
+               font-size: 15px !important;
+             }
+           }
+      }
+      
       
       #login-box{
          input{
-            height: 30;
+            height: 30px ;
          }
          .input-group{
             span{
@@ -789,7 +943,7 @@ footer{
          }
          .rmbm{
             font-size: 10px;
-            margin-top: 8px;
+            margin-top: 7px;
          }
          .btn{
             width: 90px !important;
@@ -802,8 +956,6 @@ footer{
          }
       }
    
-   }  
-   
    main{
 
       .banner-bkg{
@@ -812,22 +964,20 @@ footer{
 
       #features{
          .card{
-            width: 150px !important;
-            height: 210px !important;
-            margin: 0 auto !important;
+            // width: 180px !important;
+            // margin: 0 auto !important;
          }
          img{
-            height: 130px;
-            width: 130px;
+            // height: 135px !important;
+            // width: 135px;
          }
-         h6{
-            @include btn;
-            height: fit-content !important;
-            width: fit-content !important;
+         p{
+           
             padding: 0 5px !important;
-            font-size: 17px !important;
+            font-size: 15px !important;
             margin-top: 20px !important;
          } 
+         
       }
    
       #offer{
@@ -836,22 +986,21 @@ footer{
             @include h1;
             margin-bottom: 20px !important;
           }
-          .carousel{
+          .container-md{
             width: 60% !important;
             height: 250px !important;
             margin: 0 auto !important;
-            border-radius: 40px !important;
-            img{
-               height: 250px !important;
-            }
-            .carousel-caption{
-               margin-bottom: 20% !important;
-            }
-            .off-wrap{
-               button{
-                  margin-bottom: 25% !important;
+            .carousel-inner{
+               width: 330px !important;
+               height: 320px !important;
+               .carousel-caption{
+                  margin-bottom: 8% !important;
                }
              }
+             .carousel-control-prev, .carousel-control-next{
+               margin-top: 43% !important;
+            }
+            
           }
           
       }
@@ -872,7 +1021,7 @@ footer{
             }
          }
          .cad-1:hover, .cad-2:hover, .cad-3:hover, .cad-4:hover{
-            height: 270px !important;
+            height: 279px !important;
             width: 170px !important;
             h3{
                @include h1;
@@ -894,14 +1043,13 @@ footer{
       }
    
       #blog{
-   
+         
          .blog-img{
             height: 175px;
             width: 100%;
          }
-   
          .row{
-            margin-bottom: 18px;
+            margin-bottom: 25px !important;
          }
    
          h3{
@@ -918,6 +1066,7 @@ footer{
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
+            margin-bottom: 30px !important;
          }
       }
         
@@ -942,48 +1091,61 @@ footer{
          }
    
       }
-   }    
-}
-footer{
+   } 
+   footer{
 
-   h1{
-      font-size: 18px !important;
-   }
-    
-   p{
-      font-size: 12px !important;
-   }
-
-   i{
-      font-size: 14px !important;
-   }
-
-   .links{
-      .q-link{
-         font-size: 12px;
-         padding-bottom: 13px;
+      h1{
+         font-size: 18px !important;
+      }
+       
+      p{
+         font-size: 12px !important;
+      }
+   
+      i{
+         font-size: 14px !important;
+      }
+      #contact{
+         h1{
+            margin-left: -20px !important;
+         }
+      }
+      .links{
+         
+            .link{
+               margin-left: 10px !important;
+            }
+         
+         .q-link{
+            font-size: 12px;
+            padding-bottom: 13px;
+        }
+      }
+      .input-group{
+         width: 245px !important;
+      }
+      input{
+         height: 25px;
+         font-size: 12px !important;
+      }
+   
+     .input-group-text{
+      height: 28px !important;
+      width: 30px !important;
+      display: flex;
+      i{
+         font-size: 13px !important;
+         height: 22px !important;
+      }
      }
-   }
-   input{
-      height: 28px;
+   
+     .btn{
+      height: 25px !important;
       font-size: 12px !important;
-   }
-
-  .input-group-text{
-   height: 28px !important;
-   width: 30px !important;
-   display: flex;
-   i{
-      font-size: 13px !important;
-      
-   }
-  }
-
-  .btn{
-   height: 25px !important;
-   font-size: 12px !important;
-  }
+     }
+   }  
 }
+ 
    
 @media only screen and (min-width: 1000px){
 
@@ -991,24 +1153,13 @@ footer{
       
       #cart, .offcanvas{
          height: 370px !important;
-         width: 30% !important;
+         width: 350px !important;
       }
     }  
    
    main{
       .banner-bkg{
          height: 450px !important;
-      }
-
-        
-      #offer{
-          .carousel{
-            width: 50% !important;
-            height: 250px !important;
-            .carousel-caption{
-               margin-bottom: 20% !important;
-            }
-          }
       }
    
       #category{
@@ -1019,7 +1170,10 @@ footer{
       }
    
       #blog{
-   
+         .stars{
+            width: 260px !important;
+            margin-left: 17px !important;
+         }
          .blog-img{
             height: 150px !important;
             width: 85% !important;
@@ -1044,7 +1198,7 @@ footer{
         
       #reviews{
             .carousel{
-               width: 50% !important;
+               width: 351px !important;
             }
       }
    
