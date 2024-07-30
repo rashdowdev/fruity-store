@@ -134,7 +134,7 @@ class theHeader extends HTMLElement{
               <span class="input-group-text">
                   <i class="bi bi-key-fill"></i>
               </span>
-              <input type="password" class="form-control" id="password" placeholder="enter password">
+              <input type="password" class="form-control" id="password" name="password" placeholder="enter password">
                <span class="input-group-text">
                   <span class="info" data-bs-toggle="tooltip"data-bs-placement="bottom" title="Enter a password to sign up">
                       <i class="bi bi-question-circle text-muted"></i>

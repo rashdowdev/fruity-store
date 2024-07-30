@@ -1,6 +1,254 @@
 
-/* FRUITS */
 
+const generateItem = (data, containerId) => {
+    const container = document.getElementById(containerId);
+    if (container) {
+        container.innerHTML = data.map(item => {
+            const { id, name, star1, star2, star3, star4, star5, price, img, alt } = item;
+            const starsHtml = `
+                <i class="${star1}"></i>
+                <i class="${star2}"></i>
+                <i class="${star3}"></i>
+                <i class="${star4}"></i>
+                <i class="${star5}"></i>
+            `;
+
+            return `
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="item my-2">
+                        <div id="product-id-${id}" class="item-body text-center py-2">
+                            <div class="item-img">
+                                <img src="${img}" alt="${alt}" class="image-fluid">
+                            </div>
+                            <div class="item-des">
+                                <h3>${name}</h3>
+                                <div class="stars">
+                                    ${starsHtml}
+                                </div>
+                                <p>$ ${price}</p>
+                                <button type="submit" onclick="addToCart('${id}')" class="btn shop">add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join("");
+    }
+};
+
+allItemsData.forEach((slideData, index) => {
+    generateItem(slideData, `slide${index + 1}`);
+});
+
+
+const createSlider = (slidesClass, nextBtnId, prevBtnId, indicatorBoxId) => {
+    const slides = document.querySelectorAll(`.${slidesClass}`);
+    const nextBtn = document.getElementById(nextBtnId);
+    const prevBtn = document.getElementById(prevBtnId);
+    const slideInd = document.getElementById(indicatorBoxId);
+    let index = 0;
+
+    const updateIndicator = () => {
+        slideInd.querySelectorAll('.indicator').forEach((item, i) => {
+            item.classList.toggle("active", i === index);
+        });
+    };
+
+    const showSlide = (i) => {
+        slides.forEach(slide => slide.classList.remove("active"));
+        slides[i].classList.add("active");
+        index = i;
+        updateIndicator();
+    };
+
+    prevBtn.addEventListener("click", () => {
+        showSlide(index === 0 ? slides.length - 1 : index - 1);
+    });
+
+    nextBtn.addEventListener("click", () => {
+        showSlide(index === slides.length - 1 ? 0 : index + 1);
+    });
+
+    const indicateSlide = (element) => {
+        showSlide(parseInt(element.id));
+    };
+
+    const createIndicators = () => {
+        for (let i = 0; i < slides.length; i++) {
+            const div = document.createElement("div");
+            div.innerHTML = i + 1;
+            div.id = i;
+            div.className = i === 0 ? "indicator active" : "indicator";
+            div.addEventListener("click", function() {
+                indicateSlide(this);
+            });
+            slideInd.appendChild(div);
+        }
+    };
+
+    createIndicators();
+};
+
+createSlider("fruit-slide", "fruit-next-btn", "fruit-prev-btn", "fruit-indicator-box");
+createSlider("veg-slide", "veg-next-btn", "veg-prev-btn", "veg-indicator-box");
+createSlider("meat-slide", "meat-next-btn", "meat-prev-btn", "meat-indicator-box");
+createSlider("dairy-slide", "dairy-next-btn", "dairy-prev-btn", "dairy-indicator-box");
+
+
+/*
+const itemsData = [
+    [
+        { id: "ft-1", name: "apples", stars: 3, price: "25.99", img: "../src/images/apples.jpeg", alt:"apple" },
+        { id: "ft-2", name: "grover", stars: 3, price: "30.99", img: "../src/images/grover.jpg", alt:"grover" },
+        { id: "ft-3", name: "cherry", stars: 4, price: "35.99", img: "../src/images/cherry.jpg", alt: "cherry" },
+        { id: "ft-4", name: "pawpaw", stars: 3, price: "40.99", img: "../src/images/pawpaw.jpg", alt:"pawpaw" },
+    ],
+    [
+        { id: "ft-5", name: "apple", stars: 3, price: "25.99", img: "../src/images/apple.jpeg", alt:"apple" },
+        { id: "ft-6", name: "pear", stars: 3, price: "30.99", img: "../src/images/pear.jpg", alt:"pear" },
+        { id: "ft-7", name: "peach", stars: 4, price: "35.99", img: "../src/images/peach.jpg", alt: "peach" },
+        { id: "ft-8", name: "strawberry", stars: 3, price: "40.99", img: "../src/images/berry2.jpg", alt:"strawberry" },
+    ],
+    [
+        { id: "ft-9", name: "grapes", stars: 3, price: "25.99", img: "../src/images/grapes.jpeg", alt:"grapes" },
+        { id: "ft-10", name: "melon", stars: 3, price: "30.99", img: "../src/images/melon.jpeg", alt:"melon" },
+        { id: "ft-11", name: "lemon", stars: 4, price: "35.99", img: "../src/images/lemon.jpg", alt: "lemon" },
+        { id: "ft-12", name: "mangoes", stars: 3, price: "40.99", img: "../src/images/mangoes2.webp", alt:"mangoes" },
+    ],
+    [
+        { id: "ft-13", name: "pomegranate", stars: 3, price: "25.99", img: "../src/images/pom.jpg", alt:"pomegranate" },
+        { id: "ft-14", name: "banana", stars: 3, price: "30.99", img: "../src/images/bananas.jpeg", alt:"banana" },
+        { id: "ft-15", name: "pine", stars: 4, price: "35.99", img: "../src/images/pine.jpeg", alt: "pine" },
+        { id: "ft-16", name: "oranges", stars: 3, price: "40.99", img: "../src/images/oranges2.jpeg", alt:"oranges" },
+    ]
+];
+
+const vegItemsData = [
+    [
+        { id: "vg-1", name: "cucumber", stars: 3, price: "25.99", img: "./src/images/bam.jpeg", alt:"cucumber" },
+        { id: "vg-2", name: "ginger", stars: 3, price: "30.99", img: "./src/images/ginger.jpeg", alt:"ginger" },
+        { id: "vg-3", name: "chilly", stars: 4, price: "35.99", img: "./src/images/illy.jpeg", alt: "chilly" },
+        { id: "vg-4", name: "onions", stars: 3, price: "40.99", img: "./src/images/onion.webp", alt:"onions" },
+    ],
+    [
+        { id: "vg-5", name: "mushroom", stars: 3, price: "25.99", img: "./src/images/room.jpeg", alt:"mushroom" },
+        { id: "vg-6", name: "carrot", stars: 3, price: "30.99", img: "./src/images/rot.jpeg", alt:"carrot" },
+        { id: "vg-7", name: "chilly", stars: 4, price: "35.99", img: "./src/images/ily.jpg", alt: "chilly" },
+        { id: "vg-8", name: "tomatoes", stars: 3, price: "40.99", img: "./src/images/mato.jpg", alt:"tomatoes" },
+    ],
+    [
+        { id: "vg-9", name: "green beans", stars: 3, price: "25.99", img: "./src/images/g-beans.jpg", alt:"green beans" },
+        { id: "vg-10", name: "pumpkin", stars: 3, price: "30.99", img: "./src/images/poku.jpg", alt:"pumpkin" },
+        { id: "vg-11", name: "corn", stars: 4, price: "35.99", img: "./src/images/corn.jpg", alt: "corn" },
+        { id: "vg-12", name: "egg plant", stars: 3, price: "40.99", img: "./src/images/egg-plant.jpg", alt:"egg plant" },
+    ],
+    [
+        { id: "vg-13", name: "broccoli", stars: 3, price: "25.99", img: "./src/images/broccoli.jpg", alt:"broccoli" },
+        { id: "vg-14", name: "paprika", stars: 3, price: "30.99", img: "./src/images/paprika.jpg", alt:"paprika" },
+        { id: "vg-15", name: "lettuce", stars: 4, price: "35.99", img: "./src/images/lettuce.jpg", alt: "lettuce" },
+        { id: "vg-16", name: "lemon", stars: 3, price: "40.99", img: "./src/images/lemon.jpg", alt:"lemon" },
+    ]
+];
+
+const generateItem = (data, containerId) => {
+    const container = document.getElementById(containerId);
+    if (container) {
+        container.innerHTML = data.map(item => {
+            const { id, name, stars, price, img, alt } = item;
+            const starsHtml = Array(5).fill().map((_, i) => i < stars ? 'bi bi-star-fill' : 'bi bi-star').map(starClass => `<i class="${starClass}"></i>`).join('');
+
+            return `
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="item my-2">
+                        <div id="product-id-${id}" class="item-body text-center py-2">
+                            <div class="item-img">
+                                <img src="${img}" alt="${alt}" class="image-fluid">
+                            </div>
+                            <div class="item-des">
+                                <h3>${name}</h3>
+                                <div class="stars">
+                                    ${starsHtml}
+                                </div>
+                                <p>$ ${price}</p>
+                                <button type="submit" onclick="addToCart('${id}')" class="btn shop">add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join("");
+    }
+};
+
+itemsData.forEach((slideData, index) => {
+    generateItem(slideData, `fruit-slide${index + 1}`);
+});
+
+vegItemsData.forEach((slideData, index) => {
+    generateItem(slideData, `veg-slide${index + 1}`);
+});
+
+const createSlider = (slidesClass, nextBtnId, prevBtnId, indicatorBoxId) => {
+    const slides = document.querySelectorAll(`.${slidesClass}`);
+    const nextBtn = document.getElementById(nextBtnId);
+    const prevBtn = document.getElementById(prevBtnId);
+    const slideInd = document.getElementById(indicatorBoxId);
+    let index = 0;
+
+    const updateIndicator = () => {
+        slideInd.querySelectorAll('.indicator').forEach((item, i) => {
+            item.classList.toggle("active", i === index);
+        });
+    };
+
+    const showSlide = (i) => {
+        slides.forEach(slide => slide.classList.remove("active"));
+        slides[i].classList.add("active");
+        index = i;
+        updateIndicator();
+    };
+
+    prevBtn.addEventListener("click", () => {
+        showSlide(index === 0 ? slides.length - 1 : index - 1);
+    });
+
+    nextBtn.addEventListener("click", () => {
+        showSlide(index === slides.length - 1 ? 0 : index + 1);
+    });
+
+    const indicateSlide = (element) => {
+        showSlide(parseInt(element.id));
+    };
+
+    const createIndicators = () => {
+        for (let i = 0; i < slides.length; i++) {
+            const div = document.createElement("div");
+            div.innerHTML = i + 1;
+            div.id = i;
+            div.className = i === 0 ? "indicator active" : "indicator";
+            div.addEventListener("click", function() {
+                indicateSlide(this);
+            });
+            slideInd.appendChild(div);
+        }
+    };
+
+    createIndicators();
+};
+
+createSlider("fruit-slide", "fruit-next-btn", "fruit-prev-btn", "fruit-indicator-box");
+createSlider("veg-slide", "veg-next-btn", "veg-prev-btn", "veg-indicator-box");
+*/
+
+
+
+
+
+
+
+
+/* FRUITS */
+/*
 let fruitItems = document.getElementById("fruit-slide1");
 
 let fruitItemsData = [{
@@ -325,9 +573,8 @@ let generateFruitItems4 = () => {
 };generateFruitItems4();
 
 
-
 /* FRUITS SLIDER STARTS HERE */
-
+/*
 const slides1 = document.querySelectorAll(".fruit-slide");
 const nextBtn1 = document.querySelector("#fruit-next-btn");
 const prevBtn1 = document.querySelector("#fruit-prev-btn");
@@ -388,10 +635,10 @@ function createIndicators1 (){
     } 
 } createIndicators1();
 
-// /* FRUITS SLIDER ENDS HERE */
+/* FRUITS SLIDER ENDS HERE */
 
 /* VEG */
-
+/*
 let vegItems = document.getElementById("veg-slide1");
 let vegItemsData = [{
     id: "vg-1",
@@ -715,7 +962,7 @@ let generateVegItems4 = () => {
 };generateVegItems4();
 
 /* VEG SLIDER STARTS HERE */
-
+/*
 const slides2 = document.querySelectorAll(".veg-slide");
 const nextBtn2 = document.querySelector("#veg-next-btn");
 const prevBtn2 = document.querySelector("#veg-prev-btn");
@@ -777,7 +1024,7 @@ function createIndicators2 (){
 } createIndicators2();
 
 /* MEAT */
-
+/*
 let meatItems = document.getElementById("meat-slide1");
 let meatItemsData = [{
     id: "mt-1",
@@ -1101,7 +1348,7 @@ let generateMeatItems4 = () => {
 };generateMeatItems4();
 
  /* MEAT SLIDER STARTS HERE */
-
+/*
  const slides3 = document.querySelectorAll(".meat-slide");
  const nextBtn3 = document.querySelector("#meat-next-btn");
  const prevBtn3 = document.querySelector("#meat-prev-btn");
@@ -1109,7 +1356,7 @@ let generateMeatItems4 = () => {
  let index3 = 0;
  
  
- //slide indicator uptdate */
+ //slide indicator uptdate
  
  function updateIndicator3(){
     slideInd3.querySelectorAll('.indicator').forEach((item, i) => {
@@ -1166,7 +1413,7 @@ function createIndicators3 (){
 
 
  /* DIARY */
-
+/*
  let dairyItems = document.getElementById("dairy-slide1");
 let dairyItemsData = [{
     id: "dy-1",
@@ -1490,7 +1737,7 @@ let generateDairyItems4 = () => {
 };generateDairyItems4();
 
  /* DAIRY SLIDER STARTS HERE */
-
+/*
  const slides4 = document.querySelectorAll(".dairy-slide");
  const nextBtn4 = document.querySelector("#dairy-next-btn");
  const prevBtn4 = document.querySelector("#dairy-prev-btn");

@@ -3,11 +3,11 @@
 }
 html, body{
    height: 100% !important;
+   overflow: hidden !important;
 }
 
 #cont{
    min-height: 100% !important;
-
 }
 
 header{
@@ -299,6 +299,10 @@ header{
          margin-top: 1px !important;
          margin-left: 10px;
       }
+      span{
+         height: 22.5px !important;
+         width: 22.55px !important;
+      }
     }
     .login-box:hover{
       svg{
@@ -360,6 +364,7 @@ header{
 }
 
 main{
+   overflow: hidden !important;
    padding-bottom: 25px;
    #banner{
       margin: 70px 0 50px 0;
@@ -963,14 +968,6 @@ footer{
       }
 
       #features{
-         .card{
-            // width: 180px !important;
-            // margin: 0 auto !important;
-         }
-         img{
-            // height: 135px !important;
-            // width: 135px;
-         }
          p{
            
             padding: 0 5px !important;
